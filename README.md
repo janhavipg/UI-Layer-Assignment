@@ -433,3 +433,62 @@ Que-13: Study Promises in JavaScript and provide script for the same
 Ans:
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises in JS</title>
+</head>
+<body>
+    <h1>List of enrolled students</h1>
+    <ul id="students"></ul>
+
+    <script>
+        //promises in JS
+
+const students = [
+    { name: "Jack", subject: "JavaScript" },
+    { name: "John", subject: "Python" },
+    { name: "Priya", subject: ".net" }
+]
+
+function enrollStudent(student) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            students.push(student);
+            console.log("Student has been enrolled");
+            const error = false;
+            if (!error) {
+                resolve();
+            }
+            else {
+                reject();
+            }
+        }, 1000);
+    })
+}
+
+function getStudents() {
+    setTimeout(function () {
+        let str = "";
+        students.forEach(function (student) {
+            str += "<li> ${student.name}</li>";
+        });
+        document.getElementById('students').innerHTML = str;
+        console.log("Students have been fetched");
+    }, 3000);
+}
+
+//let newStudent = new students();
+let newStudent = [ name = "Alina", subject = "Java" ];
+enrollStudent(newStudent).then(getStudents).catch(function () {
+    console.log("Some error occured");
+});
+
+
+    </script>
+</body>
+</html>
+  
