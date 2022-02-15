@@ -23,6 +23,7 @@ const student = [
   ];
   
   //find() method-------------------------------------------------------------------------------------
+  
   const studentName = student.find( ({ name }) => name === 'Chris' );
   
   console.log(studentName); 
